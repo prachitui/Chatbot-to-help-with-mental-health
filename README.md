@@ -1,13 +1,5 @@
-# Chatbot for mental health
+# Chatbot to help with mental health
 
-## Updates (2024)
-- Fixed issues related to Python scripts not working due to outdated library versions and methods
-- Added requirements.txt for easy installation of dependencies 
-
-Before you run the scripts, ensure you have Python version <=3.8 installed (preferably Python 3.8; required for installing some libraries like Tensorflow). 
-
-This project was done for a research project under a professor at my university with a self-scraped dataset.
-The dataset we used is confidential; hence, I have used a sample Kaggle dataset. I decided to make the Scripts open-source to make a compilation of different **chatbots from scratch in Python** since I struggled with such resources during my research. 
 
 ## Motivation behind this project
 
@@ -20,7 +12,7 @@ Chatbots can be classified on the basis of different attributes -
 
 <img src="https://github.com/pandeyanuradha/Chatbot-for-mental-health/blob/cf6ec506c29952048d698fbea18708cf275d66e7/classification.png" width="500" height="600">
 
-My research was related to the design approaches, namely, rule-based, retrieval-based, and generative-based.
+The research was related to the design approaches, namely, rule-based, retrieval-based, and generative-based.
 
 1. Rule-based Chatbots: A rule-based chatbot uses a simple rule-based mapping or pattern matching to select responses from sets of predefined responses. These systems don't produce any new text; instead, they choose an answer from a predetermined list.
 2. Retrieval-based Chatbots: A retrieval-based chatbot uses Machine Learning ensembles as heuristics for evaluation. Similar to rule-based chatbots, they do not generate new texts.
@@ -31,7 +23,7 @@ My research was related to the design approaches, namely, rule-based, retrieval-
 
 The dataset was picked up from Kaggle - [Mental Health FAQ](https://www.kaggle.com/narendrageek/mental-health-faq-for-chatbot). This dataset consists of 98 FAQs about Mental Health. It consists of 3 columns - QuestionID, Questions, and Answers. 
 
-**Note that to train the retrieval chatbot, the CSV file was manually converted to a JSON file**. Since this is not the original dataset used for the research (read intro), I have used only the first 20 rows for training the model.
+
 
 The repository consists of three notebooks for the three types of chatbots. 
 
@@ -51,9 +43,9 @@ It was observed that the **CNN architecture gave the best results**. The model c
   
 ### JSON vs. CSV
   
- During this project, the biggest confusion I had was why the chatbot used a JSON file instead of CSV for the retrieval-based model. I have listed down some points that make the comparison between the two file types -
+ During the project, the biggest confusion I had was why the chatbot used a JSON file instead of CSV for the retrieval-based model. I have listed down some points that make the comparison between the two file types -
  - JSON stores data in a hierarchical manner, which is better for a retrieval-based chatbot, given that the chatbot would require tags and contexts.
-- A retrieval-based chatbot is trained to give the best response based on a pool of predefined answers. These predefined responses are finite in number. A tag needs to be provided for input-to-output mapping. To put it simply, the input given by the user(the context) is identified by the tag provided. **Based on the best tag that is predicted, the user is shown one of the predefined responses**. Hence, storing this kind of data in a JSON file is easier due to its compactness and hierarchical structure.
+- A retrieval-based chatbot is trained to give the best response based on a pool of predefined answers. These predefined responses are finite in number. A tag needs to be provided for input-to-output mapping. To put it simply, the input given by the user (the context) is identified by the tag provided. **Based on the best tag that is predicted, the user is shown one of the predefined responses**. Hence, storing this kind of data in a JSON file is easier due to its compactness and hierarchical structure.
 - A CSV file has been used to store the data of the generative chatbot. **A generative chatbot doesn’t require tags to make predictions**. These data are easier to store in a CSV file since we need just two columns - input text and output text. Adding or deleting data would be easier in this case as compared to a JSON file.
 
 ## Future goals
